@@ -1,0 +1,12 @@
+CSP
+walter marry francesca
+
+- professors must be in the same table
+- third year PhD and First year PhD not in the same table
+
+list of professors=['Tommaso','Giovanni','Mario','Sergio']
+list of First year phd=['Vincenzo','Pietro','Andrea']
+list of second year phd=['Rocco','Ivan','Domenico','Silvia']
+list of third year phd=['Cofano','Tania','Filippo']
+
+3 table and 5 chair
