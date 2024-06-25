@@ -1,5 +1,5 @@
-from backtracking import *
 from problem import TableProblem
+from backtracking import *
 from constraint import *
 
 variables=['Tommaso','Giovanni','Mario','Sergio','Vincenzo','Pietro','Andrea'
@@ -12,10 +12,13 @@ constraints=[
     [SameTable([prof1,prof2]) for prof1 in ['Tommaso','Giovanni','Mario','Sergio']
      for prof2 in ['Tommaso','Giovanni','Mario','Sergio'] if prof1!=prof2 ]+
     [DifferentTable([phd1,phd3]) for phd1 in ['Vincenzo','Pietro','Andrea']
-     for phd3 in ['Cofano','Tania','Filippo']]+[NumberChair(variables=[])]   
+     for phd3 in ['Cofano','Tania','Filippo']]+[NumberChairs()]   
 ]
+constraints=list(constraints[0])
+
 
 problem=TableProblem(variables=variables,domains=domains,constraints=constraints)
 
 search=BackTracking(problem=problem,var_criterion=minimum_remaining_values,value_criterion=least_constraining_value)
 state=search.run(problem.initial_state)
+print(state)
