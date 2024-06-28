@@ -4,8 +4,8 @@ from game.player import *
 
 game = PacmanGame(board=5)
 # first_player = Random(game=game)
-first_player = LimitedAlphaBeta(game=game, limit=10)
-# first_player = Custom(game)
+#first_player = LimitedAlphaBeta(game=game, limit=10)
+first_player = Custom(game)
 # second_player = Random(game=game)
 second_player = LimitedAlphaBeta(game=game, limit=10)
 
