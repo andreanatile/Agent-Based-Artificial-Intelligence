@@ -22,12 +22,12 @@ class HillClimbing:
                 return False
             
             best_state,best_action=max(new_states,
-                                       key=lambda s:self.problem.value(s))
+                                       key=lambda s:self.problem.value(s[0]))
             
             if self.problem.value(best_state)<=self.problem.value(node.state):
                 return node.state
             
-            node=node.expand(state=best_action,action=best_action)
+            node=node.expand(state=best_state,action=best_action)
                 
                 
 class SimulatedAnneling:
@@ -60,7 +60,7 @@ class SimulatedAnneling:
             new_states = self.problem.successors(node.state)
 
             if not new_states:
-                return False
+                return 'Stop',node.state
             
             selected_state,selected_action=random.choice(new_states)
             
@@ -72,7 +72,7 @@ class SimulatedAnneling:
             temp=self.exponential_schedule(temp,time)
             time +=1
             
-        return node.state
+        return 'ok',node.state
     
     
 class Genetic:
@@ -97,8 +97,9 @@ class Genetic:
         if self.gene_pool is None or random.uniform(0,1)>self.p_mutation:
             return state
         
-        state[random.randrange(len(state))]=random.choice(self.gene_pool)
-        return tuple(state)
+        new_state=list(state)
+        new_state[random.randrange(len(state))]=random.choice(self.gene_pool)
+        return tuple(new_state)
     
         
         
