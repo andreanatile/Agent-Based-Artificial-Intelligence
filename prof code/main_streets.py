@@ -15,7 +15,7 @@ map_problem = StreetProblem(environment=map,
                       initial_state=initial_state,
                       goal_state=goal_state)
 
-# search strategy (for the search tree, we do not include DepthFirst because it will cause infinite loop.
+'''# search strategy (for the search tree, we do not include DepthFirst because it will cause infinite loop.
 # You can try by yourself)
 strategies = [AStar(map_problem), Greedy(map_problem), Random(), BreadthFirst(), DepthLimitedSearch(limit=5), UniformCost()]
 
@@ -33,8 +33,9 @@ for strategy in strategies:
         pass
 
 print("---------")
-
-strategies = [AStar(map_problem), Greedy(map_problem), Random(), BreadthFirst(), DepthFirst(), DepthLimitedSearch(limit=5), UniformCost()]
+'''
+#strategies = [AStar(map_problem), Greedy(map_problem), Random(), BreadthFirst(), DepthFirst(), DepthLimitedSearch(limit=5), UniformCost()]
+strategies=[DepthFirst()]
 for strategy in strategies:
     search = GraphSearch(problem=map_problem, strategy=strategy)
     result, node = search.run()
